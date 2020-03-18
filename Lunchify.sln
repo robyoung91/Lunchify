@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29905.134
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lunchify.Web", "Lunchify.Web\Lunchify.Web.csproj", "{B0EC0409-BC97-492A-8880-79A7AD416CBD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lunchify.Data", "Lunchify.Data\Lunchify.Data.csproj", "{27180E2C-B919-42D3-8571-2704D1AF4F4F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B0EC0409-BC97-492A-8880-79A7AD416CBD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0EC0409-BC97-492A-8880-79A7AD416CBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0EC0409-BC97-492A-8880-79A7AD416CBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0EC0409-BC97-492A-8880-79A7AD416CBD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{27180E2C-B919-42D3-8571-2704D1AF4F4F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27180E2C-B919-42D3-8571-2704D1AF4F4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27180E2C-B919-42D3-8571-2704D1AF4F4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27180E2C-B919-42D3-8571-2704D1AF4F4F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {883A15F3-1C78-441A-9A73-6E073F53F30E}
+	EndGlobalSection
+EndGlobal
