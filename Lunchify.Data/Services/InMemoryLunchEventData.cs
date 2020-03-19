@@ -9,36 +9,48 @@ namespace Lunchify.Data.Services
 {
     class InMemoryLunchEventData : IEntityData<LunchEvent>
     {
-        List<LunchEvent> lunchevents;
+        public List<LunchEvent> lunchEvents;
 
         public InMemoryLunchEventData()
         {
-            lunchevents = new List<LunchEvent>();
-        }
 
-        public void Create(LunchEvent lunchevent)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Delete(LunchEvent lunchevent)
-        {
-            throw new NotImplementedException();
         }
 
         public LunchEvent Get(int id)
         {
-            throw new NotImplementedException();
+            return lunchEvents.FirstOrDefault(l => l.Id == id);
         }
 
         public IEnumerable<LunchEvent> GetAll()
         {
-            throw new NotImplementedException();
+            return lunchEvents.OrderBy(l => l.Id);
         }
 
-        public void Update(LunchEvent lunchevent)
+        public void Create(LunchEvent lunchEvent)
         {
-            throw new NotImplementedException();
+            lunchEvents.Add(lunchEvent);
+            lunchEvent.Id = lunchEvents.Max(l => l.Id) + 1;
+        }
+
+        public void Update(LunchEvent lunchEvent)
+        {
+            var existing = Get(lunchEvent.Id);
+            if (existing != null)
+            {
+                existing.Host = lunchEvent.Host;
+                existing.Lunch = lunchEvent.Lunch;
+                existing.Location = lunchEvent.Location;
+                existing.Capacity = lunchEvent.Capacity;
+            }
+        }
+
+        public void Delete(int id)
+        {
+            var lunchEvent = lunchEvents.FirstOrDefault(l => l.Id == id);
+            if (lunchEvent != null)
+            {
+                lunchEvents.Remove(lunchEvent);
+            }
         }
     }
 }

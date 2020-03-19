@@ -7,32 +7,19 @@ using System.Web.Mvc;
 
 namespace Lunchify.Web.Controllers
 {
-    public class HomeController : Controller
+    public class UsersController : Controller
     {
         IAppData db;
 
-        public HomeController(IAppData db)
+        public UsersController(IAppData db)
         {
             this.db = db;
         }
+        // GET: Users
         public ActionResult Index()
         {
             var model = db.GetAllUsers();
             return View(model);
-        }
-
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
         }
     }
 }

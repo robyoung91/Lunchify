@@ -9,6 +9,7 @@ namespace Lunchify.Data.Services
 {
     public interface IEntityData<T>
     {
+
         IEnumerable<T> GetAll();
 
         T Get(int id);
@@ -17,6 +18,6 @@ namespace Lunchify.Data.Services
 
         void Update(T obj);
 
-        void Delete(T obj);
+        void Delete(int id);
     }
 }

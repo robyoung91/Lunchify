@@ -9,7 +9,7 @@ namespace Lunchify.Data.Services
 {
     class InMemoryUserData : IEntityData<User>
     {
-        List<User> users;
+        public List<User> users;
 
         public InMemoryUserData()
         {
@@ -21,29 +21,38 @@ namespace Lunchify.Data.Services
             };
         }
 
-        public void Create(User user)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Delete(User user)
-        {
-            throw new NotImplementedException();
-        }
-
         public User Get(int id)
         {
-            throw new NotImplementedException();
+            return users.FirstOrDefault(u => u.Id == id);
         }
 
         public IEnumerable<User> GetAll()
         {
-            throw new NotImplementedException();
+            return users.OrderBy(u => u.Name);
+        }
+
+        public void Create(User user)
+        {
+            users.Add(user);
+            user.Id = users.Max(u => u.Id) + 1;
         }
 
         public void Update(User user)
         {
-            throw new NotImplementedException();
+            var existing = Get(user.Id);
+            if(existing != null)
+            {
+                existing.Name = user.Name;
+            }
+        }
+
+        public void Delete(int id)
+        {
+            var user = users.FirstOrDefault(u => u.Id == id);
+            if (user != null)
+            {
+                users.Remove(user);
+            }
         }
     }
 }

@@ -9,7 +9,7 @@ namespace Lunchify.Data.Services
 {
     class InMemoryLunchData : IEntityData<Lunch>
     {
-        List<Lunch> lunches;
+        public List<Lunch> lunches;
 
         public InMemoryLunchData()
         {
@@ -35,29 +35,41 @@ namespace Lunchify.Data.Services
                 },
             };
         }
-        public void Create(Lunch lunch)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Delete(Lunch lunch)
-        {
-            throw new NotImplementedException();
-        }
 
         public Lunch Get(int id)
         {
-            throw new NotImplementedException();
+            return lunches.FirstOrDefault(l => l.Id == id);
         }
 
         public IEnumerable<Lunch> GetAll()
         {
-            throw new NotImplementedException();
+            return lunches.OrderBy(l => l.Name);
+        }
+
+        public void Create(Lunch lunch)
+        {
+            lunches.Add(lunch);
+            lunch.Id = lunches.Max(l => l.Id) + 1;
         }
 
         public void Update(Lunch lunch)
         {
-            throw new NotImplementedException();
+            var existing = Get(lunch.Id);
+            if (existing != null)
+            {
+                existing.Name = lunch.Name;
+                existing.Description = lunch.Description;
+                existing.Vegetarian = lunch.Vegetarian;
+            }
+        }
+
+        public void Delete(int id)
+        {
+            var lunch = lunches.FirstOrDefault(l => l.Id == id);
+            if (lunch != null)
+            {
+                lunches.Remove(lunch);
+            }
         }
     }
 }
