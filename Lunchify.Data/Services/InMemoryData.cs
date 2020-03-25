@@ -19,34 +19,35 @@ namespace Lunchify.Data.Services
             lunchData = new InMemoryLunchData();
             lunchEventData = new InMemoryLunchEventData();
 
-            lunchEventData.lunchEvents = new List<LunchEvent>()
+            lunchEventData.Create(new LunchEvent
             {
-                new LunchEvent
-                {
-                    Id = 1,
-                    Host = userData.Get(1),
-                    Lunch = lunchData.Get(1),
-                    Location = "Piccadilly Gate",
-                    Capacity = 4,
-                },
-                new LunchEvent
-                {
-                    Id = 2,
-                    Host = userData.Get(2),
-                    Lunch = lunchData.Get(2),
-                    Location = "Heaton Moor",
-                    Capacity = 3,
-                },
-                new LunchEvent
-                {
-                    Id = 3,
-                    Host = userData.Get(3),
-                    Lunch = lunchData.Get(3),
-                    Location = "Didsbury",
-                    Capacity = 6,
-                },
-            };
-        }
+                Id = 1,
+                Host = userData.Get(1),
+                Lunch = lunchData.Get(1),
+                Location = "Piccadilly Gate",
+                Capacity = 4,
+            });
+
+            lunchEventData.Create(new LunchEvent
+            {
+                Id = 2,
+                Host = userData.Get(2),
+                Lunch = lunchData.Get(2),
+                Location = "Heaton Moor",
+                Capacity = 3,
+            });
+
+            lunchEventData.Create(new LunchEvent
+            {
+                Id = 3,
+                Host = userData.Get(3),
+                Lunch = lunchData.Get(3),
+                Location = "Didsbury",
+                Capacity = 6,
+            });
+
+            }
+        
 
         public void CreateLunch(Lunch lunch)
         {

@@ -9,7 +9,7 @@ namespace Lunchify.Data.Services
 {
     class InMemoryLunchData : IEntityData<Lunch>
     {
-        public List<Lunch> lunches;
+        private List<Lunch> lunches;
 
         public InMemoryLunchData()
         {
@@ -22,13 +22,13 @@ namespace Lunchify.Data.Services
                             Vegetarian = true
                 },
                 new Lunch {
-                            Id = 1,
-                            Name = "Cheeseburger",
+                            Id = 2,
+                            Name = "Fancy Cheeseburger",
                             Description = "A double cheeseburger with ketchup and a brioche bun.",
                             Vegetarian = false
                 },
                 new Lunch {
-                            Id = 1,
+                            Id = 3,
                             Name = "Lentil Soup",
                             Description = "Spiced red lentil soup made with onions and coconut milk.",
                             Vegetarian = true

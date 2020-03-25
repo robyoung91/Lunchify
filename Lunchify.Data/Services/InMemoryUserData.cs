@@ -9,7 +9,7 @@ namespace Lunchify.Data.Services
 {
     class InMemoryUserData : IEntityData<User>
     {
-        public List<User> users;
+        private List<User> users;
 
         public InMemoryUserData()
         {

@@ -9,11 +9,11 @@ namespace Lunchify.Data.Services
 {
     class InMemoryLunchEventData : IEntityData<LunchEvent>
     {
-        public List<LunchEvent> lunchEvents;
+        private List<LunchEvent> lunchEvents;
 
         public InMemoryLunchEventData()
         {
-
+            lunchEvents = new List<LunchEvent>();
         }
 
         public LunchEvent Get(int id)
@@ -28,8 +28,9 @@ namespace Lunchify.Data.Services
 
         public void Create(LunchEvent lunchEvent)
         {
+            lunchEvent.Id = (lunchEvents.Count == 0) ? 1 : lunchEvents.Max(l => l.Id) + 1;
             lunchEvents.Add(lunchEvent);
-            lunchEvent.Id = lunchEvents.Max(l => l.Id) + 1;
+        
         }
 
         public void Update(LunchEvent lunchEvent)
